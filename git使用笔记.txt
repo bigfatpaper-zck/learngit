@@ -1,0 +1,16 @@
+本地仓库
+
+git init 新建
+git add 添加缓存
+git diff 查看修改
+git status 查看状态
+git commit 添加到仓库（版本库）
+git log命令显示从最近到最远的提交日志
+HEAD表示当前版本 HEAD^表示上一版本 HEAD~100表示一百版本前
+git reset --hard head^回退上一版本，或者用对应的id
+git reflog记录每一次命令
+
+暂存区存储到版本库，如果没有存储到暂存区，或者存到暂存区之后又修改了，之后执行comiit，git只负责处理暂存区。
+
+git checkout --file 可以撤销没有commit的工作区修改
+
