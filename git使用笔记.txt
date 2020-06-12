@@ -10,7 +10,19 @@ HEAD表示当前版本 HEAD^表示上一版本 HEAD~100表示一百版本前
 git reset --hard head^回退上一版本，或者用对应的id
 git reflog记录每一次命令
 
-暂存区存储到版本库，如果没有存储到暂存区，或者存到暂存区之后又修改了，之后执行comiit，git只负责处理暂存区。
+暂存区存储到版本库，如果没有存储到暂存区，或者存到暂存区之后又修改了，之后执行comiit，git只负责处理暂存区。分支对应不同的版本库
 
 git checkout --file 可以撤销没有commit的工作区修改
+git reset HEAD file 可以撤销add到缓存的修改（单纯撤销add操作，如果要彻底删除还得用上一个命令)
 
+远程仓库
+git remote add origin git@github.com:michaelliao/learngit.git 关联仓库
+ git push -u origin master 推送到远程仓库（目前只有master分支），加上-u会同时关联二者，不用上一句
+再次推送 git push  origin master
+git clone git@github.com:bigfatpaper-zck/learngit.git 下载远程库
+
+分支管理
+git branch dev 新建分支dev
+git checkout dev 切换到分支dev
+git checkout -b dev 创建并切换到dev分支
+git branch 查看当前分支
