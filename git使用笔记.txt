@@ -18,11 +18,34 @@ git reset HEAD file 可以撤销add到缓存的修改（单纯撤销add操作，如果要彻底删除还得
 远程仓库
 git remote add origin git@github.com:michaelliao/learngit.git 关联仓库
  git push -u origin master 推送到远程仓库（目前只有master分支），加上-u会同时关联二者，不用上一句
-再次推送 git push  origin master
+再次推送 git push  origin master（把master分支推送到远程origin分支)
 git clone git@github.com:bigfatpaper-zck/learngit.git 下载远程库
 
 分支管理
 git branch dev 新建分支dev
 git checkout dev 切换到分支dev
-git checkout -b dev 创建并切换到dev分支
+git checkout -b dev 创建并切换到dev分支（或使用git switch -c dev)
 git branch 查看当前分支
+git merge dev 将dev分支合并到当前分支(本质上是当前指针指向了dev指针，使用了ff模式）
+git branch -d dev 删除dev分支
+合并分支如果有冲突需要手动解决，之后commit。
+如果仅用了ff模式，则合并的同时需要-m，因为他同时生成了新的commit，保留原来分支信息。
+git log --graph可以看到分支合并图
+
+git stash 将当前工作区存储起来。
+git stash list查看表。
+git stash apply stash@{0}恢复，但不删除stash中的记录
+git stash drop 删除记录
+git stash pop 恢复同时删除记录
+git cherry -pick xuhao 将一个提交复制到当前并自动产生一个新的提交。
+
+创建标签
+git tag <name>在当前分支中的commit上创建标签
+git tag -a name -m 创建标签同时打上注释
+git tag name version 给version版本打上标签
+git tag 查看标签库
+git show tagname 查看tagname标签信息
+git tag -d tagname 删除标签
+git push origin :refs/tags/<tagname> 删除远程标签
+git push origin tagname推送标签
+git push --tags 推送所有标签到远程
